@@ -14,18 +14,19 @@ RSpec.feature "StationSearch", type: :feature do
       visit '/'
 
       within(".navbar") do
-        fill_in 'search[zipcode]' with '80203'
+        fill_in 'zipcode', with: '80203'
         click_on "Locate"
       end
 
-      expect(page).to have_current_path(search_path)
-      within(".results")
-        expect(find('result').first).to have_content("Name: ")
-        expect(find('result').first).to have_content("Address: ")
-        expect(find('result').first).to have_content("Fuel Type: ")
-        expect(find('result').first).to have_content("Distance: ")
-        expect(find('result').first).to have_content("Access Times: ")
-        expect(find('result').count).to eq(10)
+      expect(page.current_path).to include(search_path)
+      within(".results") do
+        results = all('.result')
+        expect(result.first).to have_content("Name: ")
+        expect(result.first).to have_content("Address: ")
+        expect(result.first).to have_content("Fuel Type: ")
+        expect(result.first).to have_content("Distance: ")
+        expect(result.first).to have_content("Access Times: ")
+        expect(result.count).to eq(10)
       end
     end
   end

@@ -1,0 +1,11 @@
+<div class="results">
+  <% @facade.stations.each do |station| %>
+    <div class="result">
+      Name: <%= station.name %>
+      Address: <%= station.address %>
+      Fuel Type: <%= station.fuel_type %>
+      Distance: <%= station.distance %>
+      Access Times: <%= station.access_time %>
+    </div>
+  <% end %>
+</div>
