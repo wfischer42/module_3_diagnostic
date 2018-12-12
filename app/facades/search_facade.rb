@@ -4,6 +4,6 @@ class SearchFacade
   end
 
   def stations
-    Station.all_near(@zipcode).take(10)
+    Station.all_near(@zipcode)
   end
 end

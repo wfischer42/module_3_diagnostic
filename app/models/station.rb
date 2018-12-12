@@ -3,6 +3,8 @@ class Station
 
   FUEL_TYPES = { "ELEC" => "Electric Charging Station",
                  "LPG" => "Liquefied Petroleum Gas (Propane)"}
+
+  # TODO: (Refactor) Setup accessor methods instead of using instance vars.
   def initialize(data)
     @name = data[:station_name]
     @address = [data[:street_address],
@@ -21,8 +23,8 @@ class Station
     end
   end
 
-
   private
+    # TODO: Refactor - Move method into service.
     def self.get_nearest_stations(params)
       params[:api_key] = ENV['NREL_API_KEY']
       params[:fuel_type] = "LPG,ELEC"
