@@ -21,12 +21,12 @@ RSpec.feature "StationSearch", type: :feature do
       expect(page.current_path).to include(search_path)
       within(".results") do
         results = all('.result')
-        expect(result.first).to have_content("Name: ")
-        expect(result.first).to have_content("Address: ")
-        expect(result.first).to have_content("Fuel Type: ")
-        expect(result.first).to have_content("Distance: ")
-        expect(result.first).to have_content("Access Times: ")
-        expect(result.count).to eq(10)
+        expect(results.first).to have_content("Name: ")
+        expect(results.first).to have_content("Address: ")
+        expect(results.first).to have_content("Fuel Type: ")
+        expect(results.first).to have_content("Distance: ")
+        expect(results.first).to have_content("Access Times: ")
+        expect(results.count).to eq(10)
       end
     end
   end
